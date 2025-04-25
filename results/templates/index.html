@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+	  body{
+		background: #ccc;
+		}
+        .card {
+            position: relative;
+            left: 30%;
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 15rem;
+            width: 30rem;
+            box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+		margin-top: 10rem;
+		background: #fff;
+        }
+
+        .button {
+            border-radius: 5px;
+            border: 2px solid dodgerblue;
+            background-color: #fff;
+            color: black;
+		width: 5rem;
+		height: 2.2rem;
+		transition: 0.25s all
+		
+        }
+	.button:hover{
+		cursor:pointer;
+		background-color: dodgerblue;
+		color: white
+	}
+	#input{
+		height: 2rem;
+		width: 20rem;
+		outline: none;
+		border: 2px solid #ccc;
+		border-radius: 5px;
+	}
+	.title{
+		color:#d2b2b3;
+		
+	}
+	.underline{
+		display: flex;
+		position:relative;
+		top: -15px;
+		left: 142px;
+		border: 2px solid tomato;
+		border-radius: 2px;
+		width: 12rem;
+		
+	}
+    </style>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="card">
+        <h2 class='title'>Check Your Results</h2>
+		<div class="underline"></div>
+        <div>
+            <form method="post">
+				{% csrf_token %}
+                <input id='input' name="roll_number" type="text" placeholder="Enter You Roll Number">
+                <button class="button" type="submit">Submit</button>
+            </form>
+        </div>
+		{% if error %}
+			<p style="color: red;">{{error}}</p>
+		{% endif %}
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

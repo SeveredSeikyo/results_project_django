@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+	  body{
+		background: rgba(0,0,0,0.2);
+		
+		}
+        .card {
+            position: relative;
+            left: 30%;
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 30rem;
+            width: 30rem;
+            box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+		margin-top: 2rem;
+		background: #fff;
+		font-family: verdana;
+        }
+
+       .button {
+            border-radius: 5px;
+            border: 2px solid dodgerblue;
+            background-color: #fff;
+            color: black;
+		width: 7rem;
+		height: 2.2rem;
+		transition: 0.25s all
+		
+        }
+	.button:hover{
+		cursor:pointer;
+		background-color: dodgerblue;
+		color: white;
+    }
+    </style>
+    <title>Results</title>
+</head>
+
+<body>
+    <div class="card">
+        <h2 style="color:gold;">Result</h2>
+		<hr>
+        <div>
+		<h4>Name: {{result.name}}</h4>
+        <h5> Big Data Analytics: {{result.big_data}}</h5>
+		<h5>Machine Learning: {{result.ml}}</h5>
+		<h5>Disaster Preparedness and Planning Management: {{result.dppm}}</h5>
+		<h5>Software Testing Methodologies: {{result.stm}}</h5>
+        <h5>Automata Theory and Compiler Design: {{result.atcd}}</h5>
+		<h5>Percentage: {{result.percentage}} %</h5>
+        </div>
+        {% if result.final_result == "PASS" %}
+            <h3>Final Result: <span style="color:green">{{result.final_result}}<span></h3>
+        {% else %}
+            <h3>Final Result: <span style="color: red">{{result.final_result}}<span></h3>
+        {% endif %}
+	    <a href="{% url 'home' %}"><button class="button">Back to home</button></a>
+    </div>
+</body>
+
+</html>
